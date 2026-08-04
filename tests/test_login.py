@@ -11,7 +11,6 @@ class Test_Login:
     username = ReadConfig_CommonDetails().getUsername()
     password = ReadConfig_CommonDetails().getPassword()
 
-
     @pytest.mark.sanity
 #   @allure.severity(allure.severity_level.CRITICAL)
     def test_login(self, setup):

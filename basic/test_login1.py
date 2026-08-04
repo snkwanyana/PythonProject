@@ -16,7 +16,6 @@ class TestLogin:
     login_button_xpath = "//button[@id='login-submit']"
     landing_page_xpath = "//h2"
 
-
     @pytest.mark.sanity
     @pytest.mark.login
     @pytest.mark.critical
@@ -36,4 +35,3 @@ class TestLogin:
 
         # Quite driver
         self.driver.quit()
-

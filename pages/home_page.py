@@ -1,5 +1,3 @@
-from asyncio import wait
-
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -10,5 +8,5 @@ class home_page:
         self.driver = driver
 
     def click_main_login_button(self):
-        wait = WebDriverWait(self.driver, 10)
-        wait.until(self.driver.find_element_by_xpath(self.main_login_button_xpath).click())
+        wait_for_element = WebDriverWait(self.driver, 10)
+        wait_for_element.until(self.driver.find_element_by_xpath(self.main_login_button_xpath).click())
