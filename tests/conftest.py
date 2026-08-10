@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 
-chromedriver_autoinstaller.install()
+#chromedriver_autoinstaller.install()
 
 
 # Fixture to set up the WebDriver based on the browser name provided
