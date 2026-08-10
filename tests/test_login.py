@@ -32,3 +32,7 @@ class TestLogin:
         allure.attach(self.driver.get_screenshot_as_png(), name="Login Nagative", attachment_type=allure.attachment_type.PNG)
 
         time.sleep(5)
+
+    @pytest.mark.sanity
+    def teardown(self):
+        self.driver.quit()

@@ -32,7 +32,6 @@ class TestLogin:
         self.driver.find_element(By.XPATH, self.password_field_xpath).send_keys("@12345678")
         self.driver.find_element(By.XPATH, self.login_button_xpath).click()
         wait.until(EC.visibility_of_element_located((By.XPATH, self.landing_page_xpath))).is_displayed()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Landing Page", attachment_type=allure.attachment_type.PNG)
 
         # Quite driver
         self.driver.quit()
