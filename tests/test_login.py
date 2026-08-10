@@ -33,6 +33,6 @@ class TestLogin:
 
         time.sleep(5)
 
-    @pytest.mark.sanity
-    def teardown(self):
-        self.driver.quit()
+    # @pytest.mark.sanity
+    # def teardown(self):
+    #     self.driver.quit()
