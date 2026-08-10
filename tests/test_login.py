@@ -3,9 +3,9 @@ import time
 import allure
 import pytest
 
+from utils.LaunchBrowser import launch_browser
 from utils.config_properties import ReadConfig_CommonDetails
-from pages.home_page import Home_page
-from pages.login_page import Login_page
+from utils.LoginFunction import login
 from pages.landing_page import landing_page
 
 
@@ -18,21 +18,17 @@ class Test_Login:
     @pytest.mark.sanity
 #   @allure.severity(allure.severity_level.CRITICAL)
     def test_login(self, setup):
-        self.driver = setup
-        homeP = Home_page(self.driver)
-        loginP = Login_page(self.driver)
-        landingP =landing_page(self.driver)
 
-        self.driver.get(self.dev_url)
-        self.driver.maximize_window()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Login Page", attachment_type=allure.attachment_type.PNG)
+        self.driver = launch_browser(setup)
+        login(self.driver, self.username, self.password)
+        langing = landing_page(self.driver)
+        langing.is_landing_page_displayed()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Login Positive", attachment_type=allure.attachment_type.PNG)
 
-        homeP.click_main_login_button()
-        loginP.enter_username(self.username)
-        loginP.enter_password(self.password)
-        loginP.click_login_button()
-        landingP.is_landing_page_displayed()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Landing Page", attachment_type=allure.attachment_type.PNG)
-
+    @pytest.mark.sanity
+    def test_invalid_login(self, setup):
+        self.driver = launch_browser(setup)
+        login(self.driver, self.username, self.password+"invalid")
+        allure.attach(self.driver.get_screenshot_as_png(), name="Login Nagative", attachment_type=allure.attachment_type.PNG)
 
         time.sleep(5)
