@@ -17,7 +17,7 @@ class TestLogin:
     landing_page_xpath = "//h2"
 
 
-    @pytest.mark.sanity
+    @pytest.mark.regression
     @pytest.mark.login
     @pytest.mark.critical
     def test_login1(self):
