@@ -9,7 +9,7 @@ from utils.LoginFunction import login
 from pages.landing_page import landing_page
 
 
-class Test_Login:
+class TestLogin:
     dev_url = ReadConfig_CommonDetails().getDevUrl()
     username = ReadConfig_CommonDetails().getUsername()
     password = ReadConfig_CommonDetails().getPassword()

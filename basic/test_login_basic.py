@@ -20,7 +20,7 @@ class TestLogin:
     @pytest.mark.regression
     @pytest.mark.login
     @pytest.mark.critical
-    def test_login1(self):
+    def test_login(self):
         # start the browser and navigate to the website
         self.driver = webdriver.Chrome()
         self.driver.get(self.website_url)
