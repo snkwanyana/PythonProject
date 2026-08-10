@@ -1,5 +1,9 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import chromedriver_autoinstaller
+
+chromedriver_autoinstaller.install()
 
 
 # Fixture to set up the WebDriver based on the browser name provided
@@ -7,7 +11,11 @@ from selenium import webdriver
 def setup(browser):
     # Initialize the WebDriver based on the browser name
     if browser.lower() == 'chrome':
-        driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("--headless=new")  # modern headless mode
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Chrome(options)
 
     elif browser.lower() == 'edge':
         driver = webdriver.Edge()
