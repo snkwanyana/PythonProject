@@ -15,6 +15,7 @@ class TestLogin:
 
 
     @pytest.mark.sanity
+    @pytest.mark.order(1)
 #   @allure.severity(allure.severity_level.CRITICAL)
     def test_login(self, setup):
 
@@ -25,6 +26,7 @@ class TestLogin:
         allure.attach(self.driver.get_screenshot_as_png(), name="Login Positive", attachment_type=allure.attachment_type.PNG)
 
     @pytest.mark.sanity
+    @pytest.mark.order(2)
     def test_invalid_login(self, setup):
         self.driver = launch_browser(setup)
         login(self.driver, self.username, self.password+"invalid")
